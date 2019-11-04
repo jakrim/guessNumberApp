@@ -24,9 +24,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start' //Default styling for flex: column
   },
-  title: {},
-  inputContainer: {},
-  buttonContainer: {}
+  title: {
+    fontSize: 20,
+    marginVertical: 10
+  },
+  inputContainer: {
+    width: 300,
+    maxWidth: '80%',
+    alignItems: 'center',
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.26,
+    elevation: 8,
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15
+  }
 });
 
 export default StartGameScreen;
