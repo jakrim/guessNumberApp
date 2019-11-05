@@ -5,12 +5,14 @@ import {
   Text,
   Button,
   Keyboard,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Alert
 } from 'react-native';
 
 import Card from '../components/Card';
 import Colors from '../constants/colors';
 import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
 
 const StartGameScreen = props => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -28,13 +30,31 @@ const StartGameScreen = props => {
 
   const confirmInputHandler = () => {
     const chosenNumber = parseInt(enteredValue);
-    if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 999) {
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 999) {
+      Alert.alert('Invalid Number!', 'Number has to be between 1 and 999.', [
+        { text: 'Okay', style: 'destructive', onPress: resetInputHandler }
+      ]);
       return;
     }
     setConfirmed(true);
-    setSelectedNumber(parseInt(enteredValue));
+    setSelectedNumber(chosenNumber);
     setEnteredValue('');
+    Keyboard.dismiss();
   };
+
+  let confirmedOutput;
+
+  if (confirmed) {
+    confirmedOutput = (
+      <Card style={styles.confirmedNumber}>
+        <Text style={{ fontWeight: 'bold', textAlign: 'center' }}>
+          You Selected
+        </Text>
+        <NumberContainer>{selectedNumber}</NumberContainer>
+        <Button title='START GAME' />
+      </Card>
+    );
+  }
 
   return (
     <TouchableWithoutFeedback
@@ -73,6 +93,7 @@ const StartGameScreen = props => {
             </View>
           </View>
         </Card>
+        {confirmedOutput}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -101,18 +122,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   button: {
-    flex: 1,
-    width: '100%',
-    borderColor: 'black',
-    borderWidth: 1,
-    marginHorizontal: 12,
-    borderRadius: 12,
-    overflow: 'hidden',
-    alignItems: 'center'
+    width: 100
   },
   input: {
     width: 55,
     textAlign: 'center'
+  },
+  confirmedNumber: {
+    marginTop: 50,
+    alignItems: 'center'
   }
 });
 
