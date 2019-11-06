@@ -13,6 +13,8 @@ import Card from '../components/Card';
 import Colors from '../constants/colors';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import BodyText from '../components/BodyText';
+import TitleText from '../components/TitleText';
 
 const StartGameScreen = props => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -30,8 +32,8 @@ const StartGameScreen = props => {
 
   const confirmInputHandler = () => {
     const chosenNumber = parseInt(enteredValue);
-    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 999) {
-      Alert.alert('Invalid Number!', 'Number has to be between 1 and 999.', [
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      Alert.alert('Invalid Number!', 'Number has to be between 1 and 99.', [
         { text: 'Okay', style: 'destructive', onPress: resetInputHandler }
       ]);
       return;
@@ -51,7 +53,10 @@ const StartGameScreen = props => {
           You Selected
         </Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title='START GAME' />
+        <Button
+          title='START GAME'
+          onPress={() => props.onStartGame(selectedNumber)}
+        />
       </Card>
     );
   }
@@ -63,13 +68,13 @@ const StartGameScreen = props => {
       }}
     >
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a New Game!</Text>
+        <TitleText style={styles.title}>Start a New Game!</TitleText>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <BodyText>Select a Number</BodyText>
           <Input
             style={styles.input}
             keyboardType={'number-pad'}
-            maxLength={3}
+            maxLength={2}
             blurOnSubmit
             autoCapitalize='none'
             autoCorrect={false}
@@ -108,7 +113,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginVertical: 10
+    marginVertical: 10,
+    fontFamily: 'open-sans-bold'
   },
   inputContainer: {
     width: 300,
@@ -131,6 +137,9 @@ const styles = StyleSheet.create({
   confirmedNumber: {
     marginTop: 50,
     alignItems: 'center'
+  },
+  text: {
+    fontFamily: 'open-sans'
   }
 });
 
