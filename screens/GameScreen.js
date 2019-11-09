@@ -55,8 +55,9 @@ const GameScreen = props => {
     };
 
     Dimensions.addEventListener('change', updateLayout);
+
     return () => {
-      Dimensions.removeEventListener('change'), updateLayout;
+      Dimensions.removeEventListener('change', updateLayout);
     };
   });
 
