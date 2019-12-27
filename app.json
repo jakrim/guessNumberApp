@@ -1,24 +1,35 @@
 {
   "expo": {
-    "name": "Guess Number",
+    "name": "Jesse Krim - Guess Number",
+    "description": "Fun little game to trick the computer!",
     "slug": "guessNumberApp",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/question-mark-icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1dacd6"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
+      "bundleIdentifier": "com.jessekrim.guessNumber",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.jessekrim.shopping_app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/question-mark-icon.png",
+        "backgroundColor": "#1dacd6"
+      }
     }
   }
 }
