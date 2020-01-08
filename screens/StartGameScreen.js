@@ -68,7 +68,7 @@ const StartGameScreen = props => {
     confirmedOutput = (
       <Card style={styles.confirmedNumber}>
         <Text style={{ fontWeight: 'bold', textAlign: 'center' }}>
-          You Selected
+          You Entered
         </Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <MainButton
@@ -92,7 +92,7 @@ const StartGameScreen = props => {
           <View style={styles.screen}>
             <TitleText style={styles.title}>Start a New Game!</TitleText>
             <Card style={styles.inputContainer}>
-              <BodyText>Select a Number</BodyText>
+              <BodyText>Enter a Number</BodyText>
               <Input
                 style={styles.input}
                 keyboardType={'number-pad'}
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
+    paddingTop: 20,
     fontFamily: 'open-sans-bold'
   },
   inputContainer: {
