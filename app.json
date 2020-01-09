@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Jesse Krim - Guess Number",
-    "description": "Fun little game to trick the computer!",
+    "description": "Fun little game for the computer to guess your number!",
     "slug": "guessNumberApp",
     "privacy": "public",
     "sdkVersion": "35.0.0",
