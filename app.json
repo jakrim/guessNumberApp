@@ -24,7 +24,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.jessekrim.shopping_app",
+      "package": "com.jessekrim.guessNumber",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/question-mark-icon.png",
